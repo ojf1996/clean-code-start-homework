@@ -33,22 +33,23 @@ public class Order {
         output.append(getCustomerName());
         output.append(getCustomerAddress());
 
-        double totalSalesTaxAmount = 0d;
-        double totalSalesAmount = 0d;
 
         printLines(printOrderParameters, output);
+        printTotalAmountAndTotalTaxAmount(printOrderParameters, output);
+        return output.toString();
+    }
 
+    private void printTotalAmountAndTotalTaxAmount(PrintOrderParameters printOrderParameters, StringBuilder output) {
+        double totalSalesTaxAmount = 0d;
+        double totalSalesAmount = 0d;
         for (LineItem lineItem : getLineItems()) {
             double salesTax = lineItem.getSalesTax(OrderReceipt.TAX_RATE);
             totalSalesTaxAmount += salesTax;
 
             totalSalesAmount += lineItem.totalAmount() + salesTax;
         }
-
         output.append(printOrderParameters.getSalesTaxLabel()).append(printOrderParameters.getWarpWordCharacter()).append(totalSalesTaxAmount);
-
         output.append(printOrderParameters.getTotalAmountLabel()).append(printOrderParameters.getWarpWordCharacter()).append(totalSalesAmount);
-        return output.toString();
     }
 
     private void printLines(PrintOrderParameters printOrderParameters, StringBuilder output) {
