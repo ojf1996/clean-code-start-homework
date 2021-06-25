@@ -21,13 +21,8 @@ public class OrderReceipt {
     }
 
     public String printReceipt() {
-        String header = HEADER;
         Order order = this.order;
-        char tab = TAB;
-        char newLine = NEW_LINE;
-        String salesTaxLabel = SALES_TAX_LABEL;
-        String totalAmountLabel = TOTAL_AMOUNT_LABEL;
-        return order.printOrder(header, tab, newLine, salesTaxLabel, totalAmountLabel);
+        return order.printOrder(new PrintOrderParamters(HEADER, TAB, NEW_LINE, SALES_TAX_LABEL, TOTAL_AMOUNT_LABEL));
     }
 
 }
