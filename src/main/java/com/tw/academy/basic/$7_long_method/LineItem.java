@@ -33,4 +33,8 @@ public class LineItem {
 				printOrderParameters.getWarpWordCharacter(), getQuantity(), printOrderParameters.getWarpWordCharacter(),
 				totalAmount(), printOrderParameters.getWarpLineChar());
 	}
+
+	double getSalesTax(double taxRate) {
+		return totalAmount() * taxRate;
+	}
 }

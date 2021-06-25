@@ -38,7 +38,8 @@ public class Order {
         for (LineItem lineItem : getLineItems()) {
             output.append(lineItem.printLine(printOrderParamters));
 
-            double salesTax = lineItem.totalAmount() * OrderReceipt.TAX_RATE;
+            double taxRate = OrderReceipt.TAX_RATE;
+            double salesTax = lineItem.getSalesTax(taxRate);
             totalSalesTaxAmount += salesTax;
 
             totalSalesAmount += lineItem.totalAmount() + salesTax;
