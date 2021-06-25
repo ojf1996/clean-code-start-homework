@@ -10,10 +10,10 @@ public class DeliveryManager {
     }
 
     public DeliverCenter allocate(){
-        if (fromAddress.getProvince().equals(toAddress.getProvince()) && fromAddress.getCity().equals(toAddress.getCity())){
+        if (this.fromAddress.isSameProvince(this.toAddress) && this.fromAddress.isSameCity(this.toAddress)){
             return DeliverCenter.LOCAL;
         }
-        if (fromAddress.getProvince().equals(toAddress.getProvince())) {
+        if (this.fromAddress.isSameProvince(this.toAddress)) {
             return DeliverCenter.PROVINCE;
         }
         return DeliverCenter.FOREIGN;

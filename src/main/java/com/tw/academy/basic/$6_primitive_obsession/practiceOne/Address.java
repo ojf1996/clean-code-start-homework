@@ -20,4 +20,12 @@ public class Address {
         String address = getFromAddress();
         return address.substring(address.indexOf("Province") + 1, address.indexOf("City"));
     }
+
+    boolean isSameProvince(Address toAddress) {
+        return getProvince().equals(toAddress.getProvince());
+    }
+
+    boolean isSameCity(Address toAddress) {
+        return getCity().equals(toAddress.getCity());
+    }
 }
