@@ -15,4 +15,9 @@ public class Address {
         String address = getFromAddress();
         return address.substring(0, address.indexOf("Province"));
     }
+
+    String getCity() {
+        String address = getFromAddress();
+        return address.substring(address.indexOf("Province") + 1, address.indexOf("City"));
+    }
 }
