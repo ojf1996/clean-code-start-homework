@@ -21,7 +21,7 @@ public class OrderReceipt {
     }
 
     public String printReceipt() {
-        return this.order.printOrder(new PrintOrderParamters(HEADER, TAB, NEW_LINE, SALES_TAX_LABEL, TOTAL_AMOUNT_LABEL));
+        return this.order.printOrder(new PrintOrderParameters(HEADER, TAB, NEW_LINE, SALES_TAX_LABEL, TOTAL_AMOUNT_LABEL));
     }
 
 }

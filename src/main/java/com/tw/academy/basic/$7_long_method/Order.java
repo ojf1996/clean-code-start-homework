@@ -25,7 +25,7 @@ public class Order {
         return lineItems;
     }
 
-    String printOrder(PrintOrderParamters printOrderParamters) {
+    String printOrder(PrintOrderParameters printOrderParamters) {
         StringBuilder output = new StringBuilder();
 
         output.append(printOrderParamters.getHeader());
@@ -50,9 +50,9 @@ public class Order {
         return output.toString();
     }
 
-    private String printLine(PrintOrderParamters printOrderParamters, LineItem lineItem) {
-        return String.format("%s%s%s%s%s%s%s%s", lineItem.getDescription(), printOrderParamters.getWarpWordCharacter(), lineItem.getPrice(),
-                printOrderParamters.getWarpWordCharacter(), lineItem.getQuantity(), printOrderParamters.getWarpWordCharacter(),
-                lineItem.totalAmount(), printOrderParamters.getWarpLineChar());
+    private String printLine(PrintOrderParameters printOrderParameters, LineItem lineItem) {
+        return String.format("%s%s%s%s%s%s%s%s", lineItem.getDescription(), printOrderParameters.getWarpWordCharacter(), lineItem.getPrice(),
+                printOrderParameters.getWarpWordCharacter(), lineItem.getQuantity(), printOrderParameters.getWarpWordCharacter(),
+                lineItem.totalAmount(), printOrderParameters.getWarpLineChar());
     }
 }

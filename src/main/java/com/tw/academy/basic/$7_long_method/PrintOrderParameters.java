@@ -1,13 +1,13 @@
 package com.tw.academy.basic.$7_long_method;
 
-public class PrintOrderParamters {
+public class PrintOrderParameters {
     private final String header;
     private final char warpWordCharacter;
     private final char warpLineChar;
     private final String salesTaxLabel;
     private final String totalAmountLabel;
 
-    public PrintOrderParamters(String header, char tab, char newLine, String salesTaxLabel, String totalAmountLabel) {
+    public PrintOrderParameters(String header, char tab, char newLine, String salesTaxLabel, String totalAmountLabel) {
         this.header = header;
         warpWordCharacter = tab;
         warpLineChar = newLine;
