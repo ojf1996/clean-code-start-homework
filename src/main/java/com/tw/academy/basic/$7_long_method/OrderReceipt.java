@@ -8,10 +8,10 @@ package com.tw.academy.basic.$7_long_method;
  * @since   2018-1-1
  */
 public class OrderReceipt {
-    private Order o;
+    private Order order;
 
-    public OrderReceipt(Order o) {
-        this.o = o;
+    public OrderReceipt(Order order) {
+        this.order = order;
     }
 
     public String printReceipt() {
@@ -19,12 +19,12 @@ public class OrderReceipt {
 
         output.append("======Printing Orders======\n");
 
-        output.append(o.getCustomerName());
-        output.append(o.getCustomerAddress());
+        output.append(order.getCustomerName());
+        output.append(order.getCustomerAddress());
 
-        double totSalesTx = 0d;
-        double tot = 0d;
-        for (LineItem lineItem : o.getLineItems()) {
+        double totalSalesTaxAmount = 0d;
+        double totalSalesAmount = 0d;
+        for (LineItem lineItem : order.getLineItems()) {
             output.append(lineItem.getDescription());
             output.append('\t');
             output.append(lineItem.getPrice());
@@ -35,14 +35,14 @@ public class OrderReceipt {
             output.append('\n');
 
             double salesTax = lineItem.totalAmount() * .10;
-            totSalesTx += salesTax;
+            totalSalesTaxAmount += salesTax;
 
-            tot += lineItem.totalAmount() + salesTax;
+            totalSalesAmount += lineItem.totalAmount() + salesTax;
         }
 
-        output.append("Sales Tax").append('\t').append(totSalesTx);
+        output.append("Sales Tax").append('\t').append(totalSalesTaxAmount);
 
-        output.append("Total Amount").append('\t').append(tot);
+        output.append("Total Amount").append('\t').append(totalSalesAmount);
         return output.toString();
     }
 }
