@@ -10,4 +10,9 @@ public class Address {
     public String getFromAddress() {
         return fromAddress;
     }
+
+    String getProvince() {
+        String address = getFromAddress();
+        return address.substring(0, address.indexOf("Province"));
+    }
 }

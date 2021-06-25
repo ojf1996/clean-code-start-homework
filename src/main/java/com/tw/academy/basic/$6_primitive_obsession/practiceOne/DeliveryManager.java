@@ -10,10 +10,10 @@ public class DeliveryManager {
     }
 
     public DeliverCenter allocate(){
-        if (getProvince(fromAddress.getFromAddress()).equals(getProvince(toAddress.getFromAddress())) && getCity(fromAddress.getFromAddress()).equals(getCity(toAddress.getFromAddress()))){
+        if (fromAddress.getProvince().equals(toAddress.getProvince()) && getCity(fromAddress.getFromAddress()).equals(getCity(toAddress.getFromAddress()))){
             return DeliverCenter.LOCAL;
         }
-        if (getProvince(fromAddress.getFromAddress()).equals(getProvince(toAddress.getFromAddress()))) {
+        if (fromAddress.getProvince().equals(toAddress.getProvince())) {
             return DeliverCenter.PROVINCE;
         }
         return DeliverCenter.FOREIGN;
@@ -23,7 +23,4 @@ public class DeliveryManager {
         return address.substring(address.indexOf("Province") + 1, address.indexOf("City"));
     }
 
-    private String getProvince(String address) {
-        return address.substring(0, address.indexOf("Province"));
-    }
 }
