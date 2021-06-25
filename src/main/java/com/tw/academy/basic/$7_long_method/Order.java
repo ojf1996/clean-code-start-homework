@@ -36,7 +36,7 @@ public class Order {
         double totalSalesTaxAmount = 0d;
         double totalSalesAmount = 0d;
         for (LineItem lineItem : getLineItems()) {
-            output.append(printLine(printOrderParamters, lineItem));
+            output.append(lineItem.printLine(printOrderParamters));
 
             double salesTax = lineItem.totalAmount() * OrderReceipt.TAX_RATE;
             totalSalesTaxAmount += salesTax;
@@ -50,9 +50,4 @@ public class Order {
         return output.toString();
     }
 
-    private String printLine(PrintOrderParameters printOrderParameters, LineItem lineItem) {
-        return String.format("%s%s%s%s%s%s%s%s", lineItem.getDescription(), printOrderParameters.getWarpWordCharacter(), lineItem.getPrice(),
-                printOrderParameters.getWarpWordCharacter(), lineItem.getQuantity(), printOrderParameters.getWarpWordCharacter(),
-                lineItem.totalAmount(), printOrderParameters.getWarpLineChar());
-    }
 }

@@ -27,4 +27,10 @@ public class LineItem {
     double totalAmount() {
         return price * quantity;
     }
+
+	String printLine(PrintOrderParameters printOrderParameters) {
+		return String.format("%s%s%s%s%s%s%s%s", getDescription(), printOrderParameters.getWarpWordCharacter(), getPrice(),
+				printOrderParameters.getWarpWordCharacter(), getQuantity(), printOrderParameters.getWarpWordCharacter(),
+				totalAmount(), printOrderParameters.getWarpLineChar());
+	}
 }
