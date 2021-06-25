@@ -36,14 +36,7 @@ public class Order {
         double totalSalesTaxAmount = 0d;
         double totalSalesAmount = 0d;
         for (LineItem lineItem : getLineItems()) {
-            output.append(lineItem.getDescription());
-            output.append(printOrderParamters.getWarpWordCharacter());
-            output.append(lineItem.getPrice());
-            output.append(printOrderParamters.getWarpWordCharacter());
-            output.append(lineItem.getQuantity());
-            output.append(printOrderParamters.getWarpWordCharacter());
-            output.append(lineItem.totalAmount());
-            output.append(printOrderParamters.getWarpLineChar());
+            printLine(printOrderParamters, output, lineItem);
 
             double salesTax = lineItem.totalAmount() * OrderReceipt.TAX_RATE;
             totalSalesTaxAmount += salesTax;
@@ -55,5 +48,16 @@ public class Order {
 
         output.append(printOrderParamters.getTotalAmountLabel()).append(printOrderParamters.getWarpWordCharacter()).append(totalSalesAmount);
         return output.toString();
+    }
+
+    private void printLine(PrintOrderParamters printOrderParamters, StringBuilder output, LineItem lineItem) {
+        output.append(lineItem.getDescription());
+        output.append(printOrderParamters.getWarpWordCharacter());
+        output.append(lineItem.getPrice());
+        output.append(printOrderParamters.getWarpWordCharacter());
+        output.append(lineItem.getQuantity());
+        output.append(printOrderParamters.getWarpWordCharacter());
+        output.append(lineItem.totalAmount());
+        output.append(printOrderParamters.getWarpLineChar());
     }
 }
